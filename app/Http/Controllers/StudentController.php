@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function index(){
-      return view('home');
+      $age="10";
+
+      return view('home')
+      ->with('age', $age);
     }
 }
