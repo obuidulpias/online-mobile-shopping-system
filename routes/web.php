@@ -5,15 +5,20 @@ Route::get('/',[
   'as'    => '/'
 ]);
 
-Route::get('/category-product',[
+Route::get('/category-product/{id}',[
   'uses'  => 'MobileShopController@categoryProduct',
   'as'    => 'category-product'
+]);
+Route::get('/product-details/{id}',[
+  'uses' => 'MobileShopController@productDetails',
+  'as'   => 'product-details'
 ]);
 
 Route::get('/contact',[
   'uses' => 'MobileShopController@contact',
   'as'   => 'contact'
 ]);
+
 
 //Category info
 Route::get('/category/add', [
@@ -81,6 +86,20 @@ Route::post('/brand/update',[
 Route::get('/brand/delete/{id}',[
   'uses' => 'BrandController@deleteBrandInfo',
   'as'   => 'delete-brand'
+]);
+
+//Product Info
+Route::get('/product/add',[
+  'uses' => 'ProductController@index',
+  'as'   => 'add-product'
+]);
+Route::post('/product/save',[
+  'uses' => 'ProductController@saveProductInfo',
+  'as'   => 'new-product'
+]);
+Route::get('/product/manage',[
+  'uses' => 'ProductController@manageProductInfo',
+  'as'   => 'manage-product'
 ]);
 
 
