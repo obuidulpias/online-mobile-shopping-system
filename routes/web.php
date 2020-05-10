@@ -101,6 +101,27 @@ Route::get('/product/manage',[
   'uses' => 'ProductController@manageProductInfo',
   'as'   => 'manage-product'
 ]);
+Route::get('/product/edit/{id}',[
+  'uses' => 'ProductController@editProductInfo',
+  'as'   => 'edit-product'
+]);
+Route::post('/product/update',[
+  'uses' => 'ProductController@updateProductInfo',
+  'as'   => 'update-product'
+]);
+Route::get('/product/unpublished/{id}',[
+  'uses' => 'ProductController@unpublishedProductInfo',
+  'as'   => 'unpublished-product'
+]);
+Route::get('/brand/published/{id}',[
+  'uses' => 'ProductController@publishedProductInfo',
+  'as'   => 'published-product'
+]);
+Route::get('/product/delete/{id}',[
+  'uses' => 'ProductController@deleteProductInfo',
+  'as'   => 'delete-product'
+]);
+
 
 
 

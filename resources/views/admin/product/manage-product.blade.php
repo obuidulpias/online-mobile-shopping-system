@@ -35,7 +35,27 @@
                     <img src="{{ asset($product->product_image) }}" alt="" width="100" height="100">
                   </td>
                   <td>{{ $product->publication_status }}</td>
-                  <td></td>
+
+                  <td>
+                    <a href="" class="btn btn-success btn-xs" title="View Details">
+                      <span class="glyphicon glyphicon-zoom-in"></span>
+                    </a>
+                    @if($product->publication_status ==1)
+                      <a href="{{ route('unpublished-product',['id'=>$product->id] )}}" class="btn btn-info btn-xs">
+                        <span class="glyphicon glyphicon-arrow-up"></span>
+                      </a>
+                    @else
+                      <a href="{{ route('published-product',['id'=>$product->id] )}}" class="btn btn-warning btn-xs">
+                        <span class="glyphicon glyphicon-arrow-down"></span>
+                      </a>
+                    @endif
+                    <a href="{{ Route('edit-product', ['id'=>$product->id])}}" class="btn btn-success btn-xs" title="Edit">
+                      <span class="glyphicon glyphicon-edit"></span>
+                    </a>
+                    <a href="{{ Route('delete-product', ['id'=>$product->id])}}" class="btn btn-danger btn-xs" title="Delete">
+                      <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                  </td>
               </tr>
               @endforeach
 
