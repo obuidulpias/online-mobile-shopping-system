@@ -2,7 +2,7 @@
   <div class="header-top">
     <div class="container">
        <div class="top-left">
-        <a href="#"> Help  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> +0123-456-789</a>
+        <a href="#"> Help  <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> 01935723484</a>
       </div>
       <div class="top-right">
       <ul>
@@ -18,7 +18,7 @@
     <div class="container">
       <div class="logo-nav">
         <div class="logo-nav-left">
-          <h1><a href="index.html">New Shop <span>Shop anywhere</span></a></h1>
+          <h1><a href="{{ asset('/')}}">Online  <span>Mobile Shop</span></a></h1>
         </div>
         <div class="logo-nav-left1">
           <nav class="navbar navbar-default">
@@ -55,7 +55,7 @@
         </div>
         <div class="header-right2">
           <div class="cart box_1">
-            <a href="checkout.html">
+            <a href="{{ Route('show-cart') }}">
               <h3> <div class="total">
                 <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
                 <img src="images/bag.png" alt="" />
