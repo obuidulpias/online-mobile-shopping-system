@@ -14,6 +14,60 @@ Route::get('/product-details/{id}',[
   'as'   => 'product-details'
 ]);
 
+//cart
+Route::post('/cart/add',[
+  'uses' => 'CartController@addToCart',
+  'as'   => 'add-to-cart'
+]);
+Route::get('/cart/show',[
+  'uses' => 'CartController@showCart',
+  'as'   => 'show-cart'
+]);
+Route::get('/cart/delete/{id}',[
+  'uses' => 'CartController@deleteCart',
+  'as'   => 'delete-cart-item'
+]);
+Route::post('/cart/update',[
+  'uses' => 'CartController@updateCart',
+  'as'   => 'update-cart'
+]);
+
+Route::get('/checkout',[
+  'uses' => 'CheckoutController@index',
+  'as'   => 'checkout'
+]);
+Route::post('/checkout/registration',[
+  'uses' => 'CheckoutController@customerSignUp',
+  'as'   => 'customer-sign-up'
+]);
+Route::get('/checkout/shipping',[
+    'uses' => 'CheckoutController@shippingForm',
+    'as'   => 'checkout-shipping'
+]);
+Route::post('/checkout/save',[
+    'uses' => 'CheckoutController@saveShippingInfo',
+    'as'   => 'new-shipping'
+]);
+Route::get('/checkout/payment',[
+    'uses' => 'CheckoutController@paymentForm',
+    'as'   => 'checkout-payment'
+]);
+Route::post('/checkout/order',[
+    'uses' => 'CheckoutController@newOrder',
+    'as'   => 'new-order'
+]);
+Route::get('/complete/order',[
+    'uses' => 'CheckoutController@completeOrder',
+    'as'   => 'complete-order'
+]);
+
+
+Route::get('/checkout/login',[
+  'uses' => 'CheckoutController@customerLogin',
+  'as'   => 'customer-login'
+]);
+
+
 Route::get('/contact',[
   'uses' => 'MobileShopController@contact',
   'as'   => 'contact'
