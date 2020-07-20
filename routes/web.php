@@ -40,6 +40,22 @@ Route::post('/checkout/registration',[
   'uses' => 'CheckoutController@customerSignUp',
   'as'   => 'customer-sign-up'
 ]);
+Route::post('/checkout/customer-login',[
+    'uses' => 'CheckoutController@customerLoginCheck',
+    'as'   => 'customer-login'
+]);
+
+//header login logout
+Route::post('/checkout/customer-logout',[
+    'uses' => 'CheckoutController@customerLogout',
+    'as'   => 'customer-logout'
+]);
+Route::post('/checkout/new-customer-login',[
+    'uses' => 'CheckoutController@newCustomerLogin',
+    'as'   => 'new-customer-login'
+]);
+
+
 Route::get('/checkout/shipping',[
     'uses' => 'CheckoutController@shippingForm',
     'as'   => 'checkout-shipping'
@@ -62,10 +78,7 @@ Route::get('/complete/order',[
 ]);
 
 
-Route::get('/checkout/login',[
-  'uses' => 'CheckoutController@customerLogin',
-  'as'   => 'customer-login'
-]);
+
 
 
 Route::get('/contact',[

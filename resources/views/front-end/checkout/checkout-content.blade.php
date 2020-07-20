@@ -61,12 +61,12 @@ Checkout
                 {!! Form::open(['route'=>'customer-login', 'method'=>'POST',]) !!}
                 <div class="box-body">
 
-                    {{csrf_field()}}
+
 
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email Address</label>
-                        <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
+                        <input type="email" name="email_address" class="form-control" placeholder="Email Address">
                     </div>
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <label for="exampleInputPassword1">Password</label>

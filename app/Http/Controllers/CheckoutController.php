@@ -19,6 +19,10 @@ class CheckoutController extends Controller
       return view('front-end.checkout.checkout-content');
     }
     public function customerSignUp(Request $request) {
+      $this->validate($request, [
+        'email_address' => 'email|unique:customers,email_address'
+      ]);
+
       $customer = new Customer();
       $customer->first_name = $request->first_name;
       $customer->last_name = $request->last_name;
@@ -40,6 +44,30 @@ class CheckoutController extends Controller
 
       return redirect('/checkout/shipping');
     }
+    public function customerLoginCheck(Request $request) {
+        $customer = Customer::where('email_address', $request->email_address)->first();
+
+        if(password_verify($request->password, $customer->password)) {
+            Session::put('customerId', $customer->id);
+            Session::put('customerName', $customer->first_name.' '.$customer->last_name);
+
+            return redirect('/checkout/shipping');
+        } else {
+            return redirect('/checkout')->with('message', 'Please insert valid password...');
+        }
+
+    }
+    //header login logout
+    public function customerLogout() {
+        Session::forget('customerId');
+        Session::forget('customerName');
+
+        return redirect('/');
+    }
+    public  function newCustomerLogin() {
+        return view('front-end.customer.customer-login');
+    }
+
     public function shippingForm() {
         $customer = Customer::find(session::get('customerId'));
 
@@ -98,8 +126,6 @@ class CheckoutController extends Controller
         return 'done';
     }
 
-    public function customerLogin() {
 
-    }  
 
 }

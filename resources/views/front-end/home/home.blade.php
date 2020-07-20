@@ -107,10 +107,10 @@
                 <figure>
                   <a href="{{ Route('product-details', ['id'=>$newProduct->id]) }}" class="new-gri" >
                     <div class="grid-img">
-                      <img  src="{{ asset($newProduct->product_image) }}" class="img-responsive" alt="">
+                      <img  src="{{ asset($newProduct->product_image) }}" class="img-responsive" height="100" width="80" alt="">
                     </div>
                     <div class="grid-img">
-                      <img  src="{{ asset($newProduct->product_image) }}" class="img-responsive"  alt="">
+                      <img  src="{{ asset($newProduct->product_image) }}" class="img-responsive" height="100" width="80" alt="">
                     </div>
                   </a>
                 </figure>
